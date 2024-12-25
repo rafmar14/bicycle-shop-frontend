@@ -1,0 +1,47 @@
+<div class="grid grid-nogutter p-4">
+    <div class="col-12 lg:col-8">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h1 class="text-xl font-bold">{{ product.name }}</h1>
+        </ng-template>
+        <ng-template pTemplate="content">
+          <p class="text-2xl font-bold text-blue-500">{{ getPrice() | currency:'EUR':'symbol' }}</p>
+        </ng-template>
+      </p-card>
+    </div>
+  
+    <div class="col-12 lg:col-4">
+      <p-card>
+        <ng-template pTemplate="header">
+          <h2 class="text-lg font-bold">Configure Your Product</h2>
+        </ng-template>
+        <ng-template pTemplate="content">
+          <form (ngSubmit)="addToCart()" class="flex flex-column gap-4">
+            <div>
+              <label for="size" class="block font-medium mb-1">Size</label>
+              <p-autocomplete [dropdown]="true" (completeMethod)="search()" />
+
+            </div> 
+            <div>
+              <label for="quantity" class="block font-medium mb-1">Quantity</label>
+              <p-inputnumber 
+                id="quantity" 
+                name="quantity" 
+                [min]="0" 
+                [max]="10" 
+                [showButtons]="true" 
+                [mode]="'decimal'" 
+                [step]="1">
+              </p-inputnumber>
+            </div>
+  
+            <p-button 
+              type="submit" 
+              label="Add to Cart" 
+            ></p-button>
+          </form>
+        </ng-template>
+      </p-card>
+    </div>
+  </div>
+  
