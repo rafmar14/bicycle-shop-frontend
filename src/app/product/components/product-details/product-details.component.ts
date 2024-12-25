@@ -2,25 +2,25 @@ import { Product } from '@/product/domain/Product';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { AutoComplete } from 'primeng/autocomplete';
-import { ReactiveFormsModule } from '@angular/forms';
-import { InputNumber } from 'primeng/inputnumber';
+import { AutoComplete, AutoCompleteModule } from 'primeng/autocomplete';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
 import { ProductService } from '@/product/service/product.service';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { ProductComponent } from '@/product-component/domain/ProductComponent';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, ButtonModule, CardModule, AutoComplete, ReactiveFormsModule, InputNumber],
+  imports: [CommonModule, ButtonModule, CardModule, AutoCompleteModule, FormsModule, InputNumberModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
 export class ProductDetailsComponent {
   product : Product = {name: ""}
-  form = {
-    quantity: 0
-  };
+  components: ProductComponent[] = []
+  formData : { [key: string]: any } = {};
 
   constructor(private router: Router, private service: ProductService) {
   }
@@ -36,4 +36,6 @@ export class ProductDetailsComponent {
   }
 
   search() {}
+
+  onSubmit() {}
 }

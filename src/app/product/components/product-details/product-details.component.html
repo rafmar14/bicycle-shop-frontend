@@ -12,36 +12,37 @@
   
     <div class="col-12 lg:col-4">
       <p-card>
-        <ng-template pTemplate="header">
-          <h2 class="text-lg font-bold">Configure Your Product</h2>
-        </ng-template>
         <ng-template pTemplate="content">
-          <form (ngSubmit)="addToCart()" class="flex flex-column gap-4">
-            <div>
-              <label for="size" class="block font-medium mb-1">Size</label>
-              <p-autocomplete [dropdown]="true" (completeMethod)="search()" />
-
-            </div> 
-            <div>
-              <label for="quantity" class="block font-medium mb-1">Quantity</label>
-              <p-inputnumber 
-                id="quantity" 
-                name="quantity" 
-                [min]="0" 
-                [max]="10" 
-                [showButtons]="true" 
-                [mode]="'decimal'" 
-                [step]="1">
-              </p-inputnumber>
-            </div>
-  
-            <p-button 
-              type="submit" 
-              label="Add to Cart" 
-            ></p-button>
+          <form (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+            <div *ngFor="let component of components" class="mb-4">
+              <label [for]="component.name" class="block font-medium mb-1">{{ component.name }}</label>
+              @if (component.name === 'dropdown') {
+                <p-autocomplete 
+                  [dropdown]="true" 
+                  [(ngModel)]="formData[component.name]" 
+                  [inputId]="component.name"
+                  name="{{ component.name }}">
+                </p-autocomplete>
+              } @else if (component.name === 'number') {
+                <p-inputnumber 
+                  [min]="0" 
+                  [showButtons]="true" 
+                  [(ngModel)]="formData[component.name]" 
+                  [inputId]="component.name"
+                  name="{{ component.name }}">
+                </p-inputnumber>
+              } @else {
+                <input 
+                  type="text" 
+                  [(ngModel)]="formData[component.name]" 
+                  [id]="component.name"
+                  name="{{ component.name }}"
+                  class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              }  
+            </div>      
+            <p-button type="submit" label="Save Configuration"></p-button>
           </form>
         </ng-template>
-      </p-card>
-    </div>
-  </div>
+    </p-card>
+</div>
   

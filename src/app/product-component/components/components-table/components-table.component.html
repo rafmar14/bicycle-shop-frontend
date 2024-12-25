@@ -1,0 +1,30 @@
+<div class="card">
+    <p-table
+    [value]="dataSource"
+    [(selection)]="selectedComponents"
+    (selectionChange)="onSelectedComponents($event)"
+    dataKey="id"
+    [tableStyle]="{'min-width': '50rem'}">
+    <ng-template #header>
+        <tr>
+            <th style="width: 4rem">
+                <p-tableHeaderCheckbox />
+            </th>
+            <th>Name</th>
+            <th>FieldType</th>
+            <th>Base Price</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-component>
+        <tr>
+            <td>
+                <p-tableCheckbox [value]="component" />
+            </td>
+            <td class="text-blue-500 font-bold">{{ component.name }}</td>
+            <td>{{ component.fieldType }}</td>
+            <td>{{ component.basePrice | currency:'EUR':'symbol' }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+</div>

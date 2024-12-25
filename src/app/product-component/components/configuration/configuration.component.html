@@ -1,0 +1,26 @@
+<div class="space-y-6">
+    <app-component-table
+      [dataSource]="dataSource"
+      (selectedComponentsChange)="onSelectedComponentsChange($event)"
+    ></app-component-table>
+  
+    <div class="flex justify-end space-x-4">
+      <p-button 
+        label="Create" 
+        (onClick)="openDialog()"
+      ></p-button>
+      <p-button 
+        label="Delete" 
+        (onClick)="deleteProductComponent()"
+        [disabled]="!selectedProductComponents.length"
+      ></p-button>
+    </div>
+  
+    <app-configuration-dialog 
+      [visible]="displayDialog"
+      [formData]="formData"
+      (onSave)="saveData($event)"
+      (onCancel)="cancelDialog()"
+    ></app-configuration-dialog>
+  </div>
+  
