@@ -8,6 +8,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ProductCombination } from '@/shared/domain/ProductCombination';
+import { ProductService } from '@/product/service/product.service';
+import { CategoryService } from '@/category/service/category.service';
+import { Product } from '@/shared/domain/Product';
+import { Category } from '@/shared/domain/Category';
 
 @Component({
   selector: 'app-configuration-dialog',
@@ -24,10 +28,24 @@ export class ConfigurationDialogComponent {
   @Output() onCancel = new EventEmitter<void>();
   
   components: any[] = [];
+  products: Product[] = [];
+  categories: Category[] = [];
 
-  constructor(private componentService: ProductComponentService) {}
+  constructor(private componentService: ProductComponentService, private productService: ProductService, private categoryService: CategoryService) { }
 
-  loadComponents(): void {
+  getProducts(event: any): void {
+    this.productService.getProducts().subscribe(data=>{
+      this.products = data
+    })
+  }
+
+  getCategories(event: any): void {
+    this.categoryService.getCategories().subscribe(data=>{
+      this.categories = data
+    })
+  }
+
+  loadComponents(event: any): void {
     this.componentService.getProductComponents().subscribe((data) => {
       this.components = data;
     });

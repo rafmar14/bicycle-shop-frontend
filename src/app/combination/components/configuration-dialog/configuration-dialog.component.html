@@ -10,14 +10,16 @@
     <div class="flex items-center space-x-4">
       <div class="field w-full">
         <label for="name" class="block font-medium mb-1">Product Name</label>
-        <input
-          id="name"
-          type="text"
-          pInputText
-          [(ngModel)]="formData.product.name"
-          class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          readonly
-        />
+        <p-autocomplete
+          id="product"
+          [(ngModel)]="formData.product"
+          [suggestions]="products"
+          field="name"
+          placeholder="Select a Product"
+          [dropdown]="true"
+          (completeMethod)="getProducts($event)"
+          class="w-full"
+        ></p-autocomplete>
       </div>
     </div>
 
@@ -28,9 +30,11 @@
         <p-autocomplete
           id="compA"
           placeholder="Select Component A" 
+          field="name"
           [dropdown]="true" 
           [(ngModel)]="formData.combination.compA" 
-          [suggestions]="components">
+          [suggestions]="components"
+          (completeMethod)="loadComponents($event)">
         </p-autocomplete>
       </div>
     </div>
@@ -40,11 +44,13 @@
       <div class="field w-full">
         <label for="compB" class="block font-medium mb-1">Component B</label>
         <p-autocomplete
-          id="compA"
+          id="compB"
           placeholder="Select Component B" 
           [dropdown]="true" 
+          field="name"
           [(ngModel)]="formData.combination.compB" 
-          [suggestions]="components">
+          [suggestions]="components"
+          (completeMethod)="loadComponents($event)">
         </p-autocomplete>
       </div>
     </div>

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ComponentTableComponent } from '../components-table/components-table.component';
 import { ButtonModule } from 'primeng/button';
 import { ProductService } from '@/product/service/product.service';
-import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 import { ProductComponent } from '@/shared/domain/ProductComponent';
 import { ProductComponentService } from '@/product-component/service/product-component.service';
+import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 
 @Component({
   selector: 'app-configuration',

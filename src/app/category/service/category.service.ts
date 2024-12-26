@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Category } from '../../shared/domain/Category';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
