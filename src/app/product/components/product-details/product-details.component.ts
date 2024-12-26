@@ -1,4 +1,4 @@
-import { Product } from '@/product/domain/Product';
+import { Product } from '@/shared/domain/Product';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';
@@ -8,7 +8,7 @@ import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
 import { ProductService } from '@/product/service/product.service';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { ProductComponent } from '@/product-component/domain/ProductComponent';
+import { ProductComponent } from '@/shared/domain/ProductComponent';
 
 @Component({
   selector: 'app-product-details',

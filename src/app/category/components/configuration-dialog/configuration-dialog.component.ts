@@ -1,4 +1,4 @@
-import { Product } from '@/shared/domain/Product';
+import { Category } from '@/shared/domain/Category';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 export class ConfigurationDialogComponent {
   
   @Input() visible: boolean = false;
-  @Input() formData: Product = { name: '' };
+  @Input() formData: Category = { name: '' };
   @Output() onSave = new EventEmitter<{ name: string; }>();
   @Output() onCancel = new EventEmitter<void>();
 

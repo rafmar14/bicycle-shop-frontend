@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from '@/shared/domain/ProductComponent';
+import { Combination } from '@/shared/domain/Combination';
 
 @Component({
   selector: 'app-component-table',
@@ -11,14 +11,14 @@ import { ProductComponent } from '@/shared/domain/ProductComponent';
   templateUrl: './components-table.component.html',
   styleUrl: './components-table.component.scss',
 })
-export class ComponentTableComponent {
-  @Input() dataSource: ProductComponent[] = [];
+export class CombinationTableComponent {
+  @Input() dataSource: Combination[] = [];
 
-  @Output() selectedComponentsChange = new EventEmitter<ProductComponent[]>();
+  @Output() selectedCombinationsChange = new EventEmitter<Combination[]>();
   
-  selectedComponents: ProductComponent[] = []
+  selectedCombinations: Combination[] = []
 
-  onSelectedComponents(event: any[]): void {
-    this.selectedComponentsChange.emit(this.selectedComponents);
+  onSelectedCombinations(event: any[]): void {
+    this.selectedCombinationsChange.emit(this.selectedCombinations);
   }
 }

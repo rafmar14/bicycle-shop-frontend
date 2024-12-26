@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { ComponentTableComponent } from '../components-table/components-table.component';
 import { ButtonModule } from 'primeng/button';
 import { ProductService } from '@/product/service/product.service';
-import { Product } from '@/product/domain/Product';
 import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
-import { ProductComponent } from '@/product-component/domain/ProductComponent';
+import { ProductComponent } from '@/shared/domain/ProductComponent';
 import { ProductComponentService } from '@/product-component/service/product-component.service';
 
 @Component({
@@ -41,7 +40,14 @@ export class ConfigurationComponent {
     this.formData = {
       name: "",
       fieldType: "",
-      basePrice: 0
+      basePrice: 0,
+      product: {
+        name: ''
+      },
+      category: {
+        id: 0,
+        name: ''
+      }
      };
     this.displayDialog = true;
   }

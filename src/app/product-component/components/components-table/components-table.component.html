@@ -11,6 +11,8 @@
                 <p-tableHeaderCheckbox />
             </th>
             <th>Name</th>
+            <th>Product</th>
+            <th>Category</th>
             <th>FieldType</th>
             <th>Base Price</th>
         </tr>
@@ -20,7 +22,9 @@
             <td>
                 <p-tableCheckbox [value]="component" />
             </td>
-            <td class="text-blue-500 font-bold">{{ component.name }}</td>
+            <td class="font-bold">{{ component.name }}</td>
+            <td class="font-bold">{{ component.product.name }}</td>
+            <td class="font-bold">{{ component.category.name }}</td>
             <td>{{ component.fieldType }}</td>
             <td>{{ component.basePrice | currency:'EUR':'symbol' }}</td>
         </tr>

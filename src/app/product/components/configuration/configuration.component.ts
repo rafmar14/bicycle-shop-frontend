@@ -3,7 +3,7 @@ import { ProductTableComponent } from '../product-table/product-table.component'
 import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 import { ButtonModule } from 'primeng/button';
 import { ProductService } from '@/product/service/product.service';
-import { Product } from '@/product/domain/Product';
+import { Product } from '@/shared/domain/Product';
 
 @Component({
   selector: 'app-configuration',

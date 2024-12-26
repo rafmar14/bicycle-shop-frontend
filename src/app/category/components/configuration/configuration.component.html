@@ -1,0 +1,26 @@
+<div class="space-y-6">
+    <app-category-table
+      [dataSource]="dataSource"
+      (selectedCategoriesChange)="onSelectedCategoriesChange($event)"
+    ></app-category-table>
+  
+    <div class="flex justify-end space-x-4">
+      <p-button 
+        label="Create" 
+        (onClick)="openDialog()"
+      ></p-button>
+      <p-button 
+        label="Delete" 
+        (onClick)="deleteCategory()"
+        [disabled]="!selectedCategories.length"
+      ></p-button>
+    </div>
+  
+    <app-configuration-dialog 
+      [visible]="displayDialog"
+      [formData]="formData"
+      (onSave)="saveData($event)"
+      (onCancel)="cancelDialog()"
+    ></app-configuration-dialog>
+  </div>
+  

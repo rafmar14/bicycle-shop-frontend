@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MegaMenuItem, MenuItem, MessageService } from 'primeng/api';
 import { Menu } from 'primeng/menu';
 import { ToastModule } from 'primeng/toast';
@@ -14,7 +15,7 @@ import { ToastModule } from 'primeng/toast';
 export class LateralMenuComponent implements OnInit {
   items: MenuItem[] | undefined;
 
-  constructor(private messageService: MessageService) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
       this.items = [
@@ -22,39 +23,30 @@ export class LateralMenuComponent implements OnInit {
               label: 'Product',
               icon: 'pi pi-plus',
               command: () => {
-                  this.update();
-              }
+                this.router.navigate(['/products']);
+            }
           },
           {
             label: 'Category',
             icon: 'pi pi-plus',
             command: () => {
-                this.update();
+                this.router.navigate(['/categories']);
             }
         },
         {
             label: 'Component',
             icon: 'pi pi-plus',
             command: () => {
-                this.update();
+                this.router.navigate(['/components']);
             }
         },
         {
             label: 'Combination',
             icon: 'pi pi-plus',
             command: () => {
-                this.update();
+                this.router.navigate(['/combinations']);
             }
         }
       ];
-  }
-
-  update() {
-    
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'File created', life: 3000 });
-  }
-
-  delete() {
-      this.messageService.add({ severity: 'warn', summary: 'Search Completed', detail: 'No results found', life: 3000 });
   }
 }

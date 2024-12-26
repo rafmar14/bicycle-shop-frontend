@@ -3,7 +3,7 @@
   header="Add Product" 
   [modal]="true" 
   [style]="{ width: '400px' }" 
-  (onHide)="visible = false"
+  (onHide)="cancel()"
 >
   <div class="space-y-6">
     <div class="flex items-center space-x-4">
@@ -19,6 +19,41 @@
       </div>
     </div>
 
+    <!-- Autocompletado de Categoría -->
+    <div class="flex items-center space-x-4">
+      <div class="field w-full">
+        <label for="category" class="block font-medium mb-1">Category</label>
+        <p-autocomplete
+          id="category"
+          [(ngModel)]="formData.category"
+          [suggestions]="categories"
+          field="name"
+          placeholder="Select a Category"
+          [dropdown]="true"
+          (completeMethod)="getCategories($event)"
+          class="w-full"
+        ></p-autocomplete>
+      </div>
+    </div>
+
+    <!-- Autocompletado de Producto -->
+    <div class="flex items-center space-x-4">
+      <div class="field w-full">
+        <label for="product" class="block font-medium mb-1">Product</label>
+        <p-autocomplete
+          id="product"
+          [(ngModel)]="formData.product"
+          [suggestions]="products"
+          field="name"
+          placeholder="Select a Product"
+          [dropdown]="true"
+          (completeMethod)="getProducts($event)"
+          class="w-full"
+        ></p-autocomplete>
+      </div>
+    </div>
+
+    <!-- Campo para FieldType -->
     <div class="flex items-center space-x-4">
       <div class="field w-full">
         <label for="fieldType" class="block font-medium mb-1">FieldType</label>
@@ -32,6 +67,7 @@
       </div>
     </div>
 
+    <!-- Campo para Precio -->
     <div class="flex items-center space-x-4">
       <div class="field w-full">
         <label for="price" class="block font-medium mb-1">Price</label>
@@ -53,5 +89,3 @@
     </div>
   </div>
 </p-dialog>
-
-  

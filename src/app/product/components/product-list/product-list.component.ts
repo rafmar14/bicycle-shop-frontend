@@ -1,4 +1,4 @@
-import { Product } from '@/product/domain/Product';
+import { Product } from '@/shared/domain/Product';
 import { ProductService } from '@/product/service/product.service';
 import { Component } from '@angular/core';
 import { CardModule } from 'primeng/card';

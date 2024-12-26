@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
-import { ProductComponent } from '../domain/ProductComponent';
+import { ProductComponent } from '../../shared/domain/ProductComponent';
 
 @Injectable({
   providedIn: 'root'

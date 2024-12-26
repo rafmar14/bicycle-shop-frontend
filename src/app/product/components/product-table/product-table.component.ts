@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Product } from '@/product/domain/Product';
+import { Product } from '@/shared/domain/Product';
 
 @Component({
   selector: 'app-product-table',
