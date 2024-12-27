@@ -19,7 +19,9 @@ Will display a view that allows the user to maintain (create, update and delete)
 - TODO: The user can go back every step without loosing the information already included since in every view. To prevent it in the session storage the application can save information like he order id if the client hasn't include its data.
 
 ## Product Page
-TODO: The product page will display on the left part of the view the name of the product and below would have a image and the final price calculation of the product. On the right side, there will be a form with every category allowed to include in a input dropdown field with the component options available for the product. With every input set or deleted will check two values:
+The product page will display on the left part of the view the name of the product and below would have a image and the final price calculation of the product. On the right side, there will be a form with every category allowed to include in a input dropdown field with the component options available for the product. 
+
+(TODO) With every input set or deleted will check two values:
 - If there is a component that is no longer available because it is not compatible with the one set or the addition of a new component that it is now available.
 - The price calculation with the addition of the base price of the component and the price adjustment in case there is a combination of components.
 Below, there will be a add to cart button that will lead us to the detailed order and create the order object filled in database.
