@@ -47,7 +47,8 @@ export class ConfigurationComponent {
         id: 0,
         name: '',
         components: []
-      }
+      },
+      available: false
      };
     this.displayDialog = true;
   }

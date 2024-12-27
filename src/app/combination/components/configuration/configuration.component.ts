@@ -53,7 +53,8 @@ export class ConfigurationComponent {
           product: {
             id: 0,
             name: ''
-          }
+          },
+          available: false
         },
         compB: {
           name: '',
@@ -66,7 +67,8 @@ export class ConfigurationComponent {
           product: {
             id: undefined,
             name: ''
-          }
+          },
+          available: false
         },
         compatible: false,
         priceAdjustment: 0

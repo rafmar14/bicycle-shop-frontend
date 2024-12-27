@@ -6,5 +6,6 @@ export interface ProductComponent {
     name: string,
     basePrice: number,
     category: Category,
-    product: Product
+    product: Product,
+    available: boolean
 }

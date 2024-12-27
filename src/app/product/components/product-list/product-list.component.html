@@ -1,5 +1,11 @@
+<div class="flex justify-end mb-4">
+  <p-button 
+    label="Settings" 
+    class="p-button-text"
+    [routerLink]="['/configuration']">
+  </p-button>
+</div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-    <!-- Iteramos sobre los productos -->
     @for (product of products; track product.id) {
     <p-card [header]="product.name">
       <p-button label="Buy Now" (onClick)="goToProduct(product)" [routerLink]="['/products/product-details']"></p-button>

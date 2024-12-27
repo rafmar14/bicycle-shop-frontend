@@ -10,25 +10,21 @@
       </p-card>
     </div>
   
-    <div class="col-12 lg:col-4">
-      <p-card>
-        <ng-template pTemplate="content">
-          <form (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
-            <div *ngFor="let category of categories" class="mb-4">
-              <label [for]="category.id" class="block font-medium mb-1">{{ category.id }}</label>             
-              <p-autocomplete 
-              [suggestions]="category.components || []"
-                field="name"
-                [dropdown]="true"
-                [(ngModel)]="formData[category.name]" 
-                [inputId]="category.id + '_autocomplete'"
-                name="{{ category.name }}"
-                (completeMethod)="getComponents($event, category.id!)">
-              </p-autocomplete>           
-            </div>      
-            <p-button type="submit" label="Save Configuration"></p-button>
-          </form>
-        </ng-template>
-    </p-card>
+    <form *ngIf="categories && categories.length > 0" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+      <div *ngFor="let category of categories" class="mb-4">
+        <label [for]="category.id" class="block font-medium mb-1">{{ category.name }}</label>             
+        <p-autocomplete 
+          [suggestions]="category.components || []"
+          field="name"
+          [dropdown]="true"
+          [(ngModel)]="formData[category.name]" 
+          [inputId]="category.id + '_autocomplete'"
+          name="{{ category.name }}"
+          (completeMethod)="getComponents($event, category.id!)">
+        </p-autocomplete>           
+      </div>      
+      <p-button type="submit" label="Save Configuration"></p-button>
+    </form>
+    
 </div>
   

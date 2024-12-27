@@ -33,7 +33,8 @@ export class ConfigurationDialogComponent {
     product: {
       id: 0,
       name: ''
-    }
+    },
+    available: false
   };
   @Output() onSave = new EventEmitter<ProductComponent>();
   @Output() onCancel = new EventEmitter<void>();

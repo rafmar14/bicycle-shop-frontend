@@ -18,7 +18,7 @@ export class ProductService {
     localStorage.setItem(this.storageKey, JSON.stringify(product));
   }
 
-  getSelectedProduct() {
+  getSelectedProduct() : Product {
     const product = localStorage.getItem(this.storageKey);
     return product ? JSON.parse(product) : null;
   }

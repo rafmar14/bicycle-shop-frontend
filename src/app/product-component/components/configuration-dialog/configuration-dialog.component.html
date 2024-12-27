@@ -68,6 +68,18 @@
       </div>
     </div>
 
+    <!-- Verificar Disponibilidad -->
+    <div class="flex items-center space-x-4">
+      <div class="field w-full">
+        <p-checkbox 
+          id="available" 
+          [(ngModel)]="formData.available" 
+          binary="true" 
+          label="Available"
+        ></p-checkbox>
+      </div>
+    </div>
+
     <!-- Botones de acción -->
     <div class="flex justify-end space-x-4">
       <p-button label="Cancel" class="p-button-text" (click)="cancel()"></p-button>

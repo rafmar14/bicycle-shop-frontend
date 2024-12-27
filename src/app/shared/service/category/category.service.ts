@@ -21,6 +21,10 @@ export class CategoryService {
     return this.http.get<Category[]>(environment.baseUrl + 'categories')
   }
 
+  getCategoriesByProduct(id: number) {
+    return this.http.get<Category[]>(`${environment.baseUrl}categories/${id}`)
+  }
+
   createCategory(category: Category) {
     return this.http.post<Category>(environment.baseUrl + 'categories', category)
   }

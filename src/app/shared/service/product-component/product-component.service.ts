@@ -30,8 +30,8 @@ export class ProductComponentService {
     return this.http.get<ProductComponent[]>(environment.baseUrl + 'components')
   }
 
-  getProductComponentsByCategory(idCategory: number) {
-    return this.http.get<ProductComponent[]>(`${environment.baseUrl}components/category/${idCategory}`)
+  getProductComponentsByCategoryByProduct(idCategory: number, idProduct: number) {
+    return this.http.get<ProductComponent[]>(`${environment.baseUrl}components/category/${idCategory}/product/${idProduct}`)
   }
 
   createProductComponent(component: ProductComponent) {
