@@ -39,7 +39,6 @@ export class ConfigurationComponent {
   openDialog(): void {
     this.formData = {
       name: "",
-      fieldType: "",
       basePrice: 0,
       product: {
         name: ''

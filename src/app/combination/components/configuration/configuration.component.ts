@@ -44,7 +44,6 @@ export class ConfigurationComponent {
       combination: {
         compA: {
           name: '',
-          fieldType: '',
           basePrice: 0,
           category: {
             id: 0,
@@ -58,7 +57,6 @@ export class ConfigurationComponent {
         },
         compB: {
           name: '',
-          fieldType: '',
           basePrice: 0,
           category: {
             id: 0,

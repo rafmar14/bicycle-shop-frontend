@@ -25,7 +25,6 @@ export class ConfigurationDialogComponent {
   @Input() visible: boolean = false;
   @Input() formData: ProductComponent = {
     name: '',
-    fieldType: '',
     basePrice: 0,
     category: {
       name: '',
