@@ -6,5 +6,5 @@ export const routes: Routes = [
     { path: 'combinations', loadChildren: () => import('./combination/combination.module').then(m => m.CombinationModule) },
     { path: 'categories', loadChildren: () => import('./category/category.module').then(m => m.CategoryModule) },
     { path: 'configuration', loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule) },
-    { path: 'products', loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule) }
+    { path: '', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) }
 ];

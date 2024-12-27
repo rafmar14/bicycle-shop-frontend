@@ -15,30 +15,13 @@
         <ng-template pTemplate="content">
           <form (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
             <div *ngFor="let component of components" class="mb-4">
-              <label [for]="component.name" class="block font-medium mb-1">{{ component.name }}</label>
-              @if (component.name === 'dropdown') {
+              <label [for]="component.name" class="block font-medium mb-1">{{ component.name }}</label>             
                 <p-autocomplete 
                   [dropdown]="true" 
                   [(ngModel)]="formData[component.name]" 
                   [inputId]="component.name"
                   name="{{ component.name }}">
-                </p-autocomplete>
-              } @else if (component.name === 'number') {
-                <p-inputnumber 
-                  [min]="0" 
-                  [showButtons]="true" 
-                  [(ngModel)]="formData[component.name]" 
-                  [inputId]="component.name"
-                  name="{{ component.name }}">
-                </p-inputnumber>
-              } @else {
-                <input 
-                  type="text" 
-                  [(ngModel)]="formData[component.name]" 
-                  [id]="component.name"
-                  name="{{ component.name }}"
-                  class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-              }  
+                </p-autocomplete>              
             </div>      
             <p-button type="submit" label="Save Configuration"></p-button>
           </form>

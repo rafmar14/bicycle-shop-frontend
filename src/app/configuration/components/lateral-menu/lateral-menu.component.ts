@@ -23,28 +23,28 @@ export class LateralMenuComponent implements OnInit {
               label: 'Product',
               icon: 'pi pi-plus',
               command: () => {
-                this.router.navigate(['/products']);
+                this.router.navigate(['/products/configuration']);
             }
           },
           {
             label: 'Category',
             icon: 'pi pi-plus',
             command: () => {
-                this.router.navigate(['/categories']);
+                this.router.navigate(['/categories/configuration']);
             }
         },
         {
             label: 'Component',
             icon: 'pi pi-plus',
             command: () => {
-                this.router.navigate(['/components']);
+                this.router.navigate(['/components/configuration']);
             }
         },
         {
             label: 'Combination',
             icon: 'pi pi-plus',
             command: () => {
-                this.router.navigate(['/combinations']);
+                this.router.navigate(['/combinations/configuration']);
             }
         }
       ];
