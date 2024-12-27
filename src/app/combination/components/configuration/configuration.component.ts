@@ -3,7 +3,6 @@ import { ButtonModule } from 'primeng/button';
 import { CombinationTableComponent } from '../components-table/components-table.component';
 import { Combination } from '@/shared/domain/Combination';
 import { CombinationService } from '@/shared/service/combination/combination.service';
-import { ProductCombination } from '@/shared/domain/ProductCombination';
 import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 
 @Component({
@@ -20,7 +19,7 @@ export class ConfigurationComponent {
   selectedCombinations: Combination[] = [];
 
   displayDialog: boolean = false;
-  formData!: ProductCombination;
+  formData!: Combination;
 
   constructor(private service: CombinationService) {
     this.loadData();
@@ -38,41 +37,37 @@ export class ConfigurationComponent {
 
   openDialog(): void {
     this.formData = {
-      product: {
-        name: ''
+
+      compA: {
+        name: '',
+        basePrice: 0,
+        category: {
+          id: 0,
+          name: '',
+          components: []
+        },
+        product: {
+          id: 0,
+          name: ''
+        },
+        available: false
       },
-      combination: {
-        compA: {
+      compB: {
+        name: '',
+        basePrice: 0,
+        category: {
+          id: 0,
           name: '',
-          basePrice: 0,
-          category: {
-            id: 0,
-            name: '',
-            components: []
-          },
-          product: {
-            id: 0,
-            name: ''
-          },
-          available: false
+          components: []
         },
-        compB: {
-          name: '',
-          basePrice: 0,
-          category: {
-            id: 0,
-            name: '',
-            components: []
-          },
-          product: {
-            id: undefined,
-            name: ''
-          },
-          available: false
+        product: {
+          id: undefined,
+          name: ''
         },
-        compatible: false,
-        priceAdjustment: 0
-      }
+        available: false
+      },
+      compatible: false,
+      priceAdjustment: 0
     };
     this.displayDialog = true;
   }

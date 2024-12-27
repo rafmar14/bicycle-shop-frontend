@@ -1,6 +1,6 @@
 <p-dialog 
   [(visible)]="visible" 
-  header="Add Product" 
+  header="Add Component" 
   [modal]="true" 
   [style]="{ width: '400px' }" 
   (onHide)="cancel()"
@@ -70,6 +70,7 @@
 
     <!-- Verificar Disponibilidad -->
     <div class="flex items-center space-x-4">
+      <label for="available" class="block font-medium mb-1">Available</label>
       <div class="field w-full">
         <p-checkbox 
           id="available" 

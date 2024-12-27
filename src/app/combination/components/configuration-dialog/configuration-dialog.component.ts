@@ -5,24 +5,25 @@ import { Dialog } from 'primeng/dialog';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-import { ProductCombination } from '@/shared/domain/ProductCombination';
+import { Combination } from '@/shared/domain/Combination';
 import { ProductService } from '@/product/service/product.service';
 import { CategoryService } from '@/shared/service/category/category.service';
 import { Product } from '@/shared/domain/Product';
 import { Category } from '@/shared/domain/Category';
 import { ProductComponentService } from '@/shared/service/product-component/product-component.service';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-configuration-dialog',
   standalone: true,
-  imports: [Dialog, ButtonModule, InputTextModule, InputNumberModule, AutoCompleteModule, FormsModule],
+  imports: [Dialog, ButtonModule, InputTextModule, InputNumberModule, AutoCompleteModule, CheckboxModule, FormsModule],
   templateUrl: './configuration-dialog.component.html',
   styleUrl: './configuration-dialog.component.scss'
 })
 export class ConfigurationDialogComponent {
   
   @Input() visible: boolean = false;
-  @Input() formData!: ProductCombination;
+  @Input() formData!: Combination;
   @Output() onSave = new EventEmitter<any>();
   @Output() onCancel = new EventEmitter<void>();
   
@@ -59,9 +60,9 @@ export class ConfigurationDialogComponent {
   }
 
   isValidForm(): boolean {
-    return this.formData.combination.compA !== undefined 
-    && this.formData.combination.compB !== undefined 
-    && this.formData.combination.compatible !== undefined 
-    && this.formData.combination.priceAdjustment !== undefined;
+    return this.formData.compA !== undefined 
+    && this.formData.compB !== undefined 
+    && this.formData.compatible !== undefined 
+    && this.formData.priceAdjustment !== undefined;
   }
 }

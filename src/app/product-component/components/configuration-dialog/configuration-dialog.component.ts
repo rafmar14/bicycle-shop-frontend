@@ -12,11 +12,12 @@ import { Category } from '@/shared/domain/Category';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ProductService } from '@/product/service/product.service';
 import { CategoryService } from '@/shared/service/category/category.service';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @Component({
   selector: 'app-configuration-dialog',
   standalone: true,
-  imports: [Dialog, ButtonModule, InputTextModule, InputNumberModule, AutoCompleteModule, FormsModule],
+  imports: [Dialog, ButtonModule, InputTextModule, InputNumberModule, AutoCompleteModule, CheckboxModule, FormsModule],
   templateUrl: './configuration-dialog.component.html',
   styleUrl: './configuration-dialog.component.scss'
 })

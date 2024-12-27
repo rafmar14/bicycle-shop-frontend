@@ -1,32 +1,42 @@
 <div class="card">
     <p-table
-    [value]="dataSource"
-    [(selection)]="selectedComponents"
-    (selectionChange)="onSelectedComponents($event)"
-    dataKey="id"
-    [tableStyle]="{'min-width': '50rem'}">
-    <ng-template #header>
+      [value]="dataSource"
+      [(selection)]="selectedComponents"
+      (selectionChange)="onSelectedComponents($event)"
+      dataKey="id"
+      [tableStyle]="{'min-width': '50rem'}">
+      <ng-template #header>
         <tr>
-            <th style="width: 4rem">
-                <p-tableHeaderCheckbox />
-            </th>
-            <th>Name</th>
-            <th>Product</th>
-            <th>Category</th>
-            <th>Base Price</th>
+          <th style="width: 4rem">
+            <p-tableHeaderCheckbox />
+          </th>
+          <th>Name</th>
+          <th>Product</th>
+          <th>Category</th>
+          <th>Base Price</th>
+          <th>Available</th>
         </tr>
-    </ng-template>
-    <ng-template #body let-component>
+      </ng-template>
+  
+      <ng-template #body let-component>
         <tr>
-            <td>
-                <p-tableCheckbox [value]="component" />
-            </td>
-            <td class="font-bold">{{ component.name }}</td>
-            <td class="font-bold">{{ component.product.name }}</td>
-            <td class="font-bold">{{ component.category.name }}</td>
-            <td>{{ component.basePrice | currency:'EUR':'symbol' }}</td>
+          <td>
+            <p-tableCheckbox [value]="component" />
+          </td>
+          <td class="font-bold">{{ component.name }}</td>
+          <td class="font-bold">{{ component.product.name }}</td>
+          <td class="font-bold">{{ component.category.name }}</td>
+          <td>{{ component.basePrice | currency:'EUR':'symbol' }}</td>
+          <td>
+            <p-checkbox 
+              [(ngModel)]="component.available" 
+              binary="true" 
+              label="Available"
+              disabled="true"
+            ></p-checkbox>
+          </td>
         </tr>
-    </ng-template>
-</p-table>
-
-</div>
+      </ng-template>
+    </p-table>
+  </div>
+  

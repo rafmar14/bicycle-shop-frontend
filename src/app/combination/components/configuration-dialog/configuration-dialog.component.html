@@ -6,22 +6,6 @@
   (onHide)="cancel()"
 >
   <div class="space-y-6">
-    <!-- Nombre del producto -->
-    <div class="flex items-center space-x-4">
-      <div class="field w-full">
-        <label for="name" class="block font-medium mb-1">Product Name</label>
-        <p-autocomplete
-          id="product"
-          [(ngModel)]="formData.product"
-          [suggestions]="products"
-          field="name"
-          placeholder="Select a Product"
-          [dropdown]="true"
-          (completeMethod)="getProducts($event)"
-          class="w-full"
-        ></p-autocomplete>
-      </div>
-    </div>
 
     <!-- Selección de Componente A -->
     <div class="flex items-center space-x-4">
@@ -32,7 +16,7 @@
           placeholder="Select Component A" 
           field="name"
           [dropdown]="true" 
-          [(ngModel)]="formData.combination.compA" 
+          [(ngModel)]="formData.compA" 
           [suggestions]="components"
           (completeMethod)="loadComponents($event)">
         </p-autocomplete>
@@ -48,7 +32,7 @@
           placeholder="Select Component B" 
           [dropdown]="true" 
           field="name"
-          [(ngModel)]="formData.combination.compB" 
+          [(ngModel)]="formData.compB" 
           [suggestions]="components"
           (completeMethod)="loadComponents($event)">
         </p-autocomplete>
@@ -61,7 +45,7 @@
         <label for="compatible" class="block font-medium mb-1">Compatible</label>
         <p-checkbox 
           id="compatible" 
-          [(ngModel)]="formData.combination.compatible" 
+          [(ngModel)]="formData.compatible" 
           binary="true" 
           label="Is Compatible"
         ></p-checkbox>
@@ -74,7 +58,7 @@
         <label for="priceAdjustment" class="block font-medium mb-1">Price Adjustment</label>
         <p-inputnumber 
           id="priceAdjustment" 
-          [(ngModel)]="formData.combination.priceAdjustment" 
+          [(ngModel)]="formData.priceAdjustment" 
           [mode]="'currency'" 
           [currency]="'eur'" 
           [locale]="'es-ES'" 

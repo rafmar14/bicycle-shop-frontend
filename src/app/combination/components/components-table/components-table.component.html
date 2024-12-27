@@ -1,32 +1,45 @@
 <div class="card">
     <p-table
-        [value]="dataSource"
-        [(selection)]="selectedCombinations"
-        (selectionChange)="onSelectedCombinations($event)"
-        dataKey="id"
-        [tableStyle]="{'min-width': '50rem'}">
-        <ng-template #header>
-            <tr>
-                <th style="width: 4rem">
-                    <p-tableHeaderCheckbox />
-                </th>
-                <th>Component A</th>
-                <th>Component B</th>
-                <th>Compatible</th>
-                <th>Price Adjustment</th>
-            </tr>
-        </ng-template>
-        <ng-template #body let-combination>
-            <tr>
-                <td>
-                    <p-tableCheckbox [value]="combination" />
-                </td>
-                <td class="font-bold">{{ combination.compA.name }}</td>
-                <td>{{ combination.compB.name }}</td>
-                <td>{{ combination.compatible }}</td>
-                <td>{{ combination.priceAdjustment | currency:'EUR':'symbol' }}</td>
-            </tr>
-        </ng-template>
+      [value]="dataSource"
+      [(selection)]="selectedCombinations"
+      (selectionChange)="onSelectedCombinations($event)"
+      dataKey="id"
+      [tableStyle]="{ 'min-width': '50rem' }">
+      
+      <ng-template #header>
+        <tr>
+          <th style="width: 4rem">
+            <p-tableHeaderCheckbox />
+          </th>
+          <th>Component A</th>
+          <th>Component B</th>
+          <th>Price Adjustment</th>
+          <th>Compatible</th>
+        </tr>
+      </ng-template>
+  
+      <!-- Table Body -->
+      <ng-template #body let-combination>
+        <tr>
+          <!-- Checkbox for selecting rows -->
+          <td>
+            <p-tableCheckbox [value]="combination" />
+          </td>
+          <!-- Accessing nested combination properties -->
+          <td class="font-bold">{{ combination.compA.name }}</td>
+          <td class="font-bold">{{ combination.compB.name }}</td>
+          <td>{{ combination.priceAdjustment | currency:'EUR':'symbol' }}</td>
+          <td>
+            <p-checkbox 
+              [(ngModel)]="combination.compatible"
+              binary="true"
+              label="Compatible"
+              disabled="true"
+            ></p-checkbox>
+          </td>
+        </tr>
+      </ng-template>
+      
     </p-table>
-
-</div>
+  </div>
+  
