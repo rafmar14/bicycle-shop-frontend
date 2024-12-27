@@ -11,7 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Category } from '@/shared/domain/Category';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ProductService } from '@/product/service/product.service';
-import { CategoryService } from '@/category/service/category.service';
+import { CategoryService } from '@/shared/service/category/category.service';
 
 @Component({
   selector: 'app-configuration-dialog',
@@ -28,7 +28,8 @@ export class ConfigurationDialogComponent {
     fieldType: '',
     basePrice: 0,
     category: {
-      name: ''
+      name: '',
+      components: []
     },
     product: {
       id: 0,

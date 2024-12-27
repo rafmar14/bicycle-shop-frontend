@@ -1,8 +1,8 @@
+import { ProductComponent } from '@/shared/domain/ProductComponent';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
-import { ProductComponent } from '../../shared/domain/ProductComponent';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,10 @@ export class ProductComponentService {
 
   getProductComponents() {
     return this.http.get<ProductComponent[]>(environment.baseUrl + 'components')
+  }
+
+  getProductComponentsByCategory(idCategory: number) {
+    return this.http.get<ProductComponent[]>(`${environment.baseUrl}components/category/${idCategory}`)
   }
 
   createProductComponent(component: ProductComponent) {

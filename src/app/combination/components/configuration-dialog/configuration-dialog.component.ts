@@ -1,5 +1,3 @@
-import { Combination } from '@/shared/domain/Combination';
-import { ProductComponentService } from '@/product-component/service/product-component.service';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -9,9 +7,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ProductCombination } from '@/shared/domain/ProductCombination';
 import { ProductService } from '@/product/service/product.service';
-import { CategoryService } from '@/category/service/category.service';
+import { CategoryService } from '@/shared/service/category/category.service';
 import { Product } from '@/shared/domain/Product';
 import { Category } from '@/shared/domain/Category';
+import { ProductComponentService } from '@/shared/service/product-component/product-component.service';
 
 @Component({
   selector: 'app-configuration-dialog',

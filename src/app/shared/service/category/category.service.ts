@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { Category } from '../../shared/domain/Category';
+import { environment } from '../../../../environments/environment';
+import { Category } from '../../domain/Category';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
 
 @Injectable({
@@ -12,15 +12,6 @@ export class CategoryService {
   private storageKey = 'selectedCategory';
 
   constructor(private http: HttpClient) { }
-
-  setSelectedCategory(category: any) {
-    localStorage.setItem(this.storageKey, JSON.stringify(category));
-  }
-
-  getSelectedCategory() {
-    const category = localStorage.getItem(this.storageKey);
-    return category ? JSON.parse(category) : null;
-  }
 
   clearSelectedCategory() {
     localStorage.removeItem(this.storageKey);

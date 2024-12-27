@@ -3,8 +3,8 @@ import { ComponentTableComponent } from '../components-table/components-table.co
 import { ButtonModule } from 'primeng/button';
 import { ProductService } from '@/product/service/product.service';
 import { ProductComponent } from '@/shared/domain/ProductComponent';
-import { ProductComponentService } from '@/product-component/service/product-component.service';
 import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
+import { ProductComponentService } from '@/shared/service/product-component/product-component.service';
 
 @Component({
   selector: 'app-configuration',
@@ -31,7 +31,7 @@ export class ConfigurationComponent {
   }
 
   loadData(): void {
-    this.service.getProductComponents().subscribe(data => {
+    this.service.getProductComponents().subscribe((data) => {
       this.dataSource = data;
     });
   }
@@ -46,7 +46,8 @@ export class ConfigurationComponent {
       },
       category: {
         id: 0,
-        name: ''
+        name: '',
+        components: []
       }
      };
     this.displayDialog = true;

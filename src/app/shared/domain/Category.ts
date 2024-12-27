@@ -1,4 +1,7 @@
+import { ProductComponent } from "./ProductComponent";
+
 export interface Category {
     id?: number,
-    name: string
+    name: string,
+    components: ProductComponent[]
 }

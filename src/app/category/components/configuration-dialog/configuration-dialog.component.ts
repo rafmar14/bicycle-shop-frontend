@@ -17,8 +17,11 @@ import { InputTextModule } from 'primeng/inputtext';
 export class ConfigurationDialogComponent {
   
   @Input() visible: boolean = false;
-  @Input() formData: Category = { name: '' };
-  @Output() onSave = new EventEmitter<{ name: string; }>();
+  @Input() formData: Category = {
+    name: '',
+    components: []
+  };
+  @Output() onSave = new EventEmitter<Category>();
   @Output() onCancel = new EventEmitter<void>();
 
   save(): void {

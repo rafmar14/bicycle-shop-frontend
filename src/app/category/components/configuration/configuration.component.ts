@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 import { ButtonModule } from 'primeng/button';
-import { CategoryService } from '@/category/service/category.service';
+import { CategoryService } from '@/shared/service/category/category.service';
 import { Category } from '@/shared/domain/Category';
 import { CategoryTableComponent } from '../category-table/category-table.component';
 
@@ -19,7 +19,10 @@ export class ConfigurationComponent {
   selectedCategories: Category[] = [];
 
   displayDialog: boolean = false;
-  formData: Category = { name: '' };
+  formData: Category = {
+    name: '',
+    components: []
+  };
 
   constructor(private categoryService: CategoryService) {
     this.loadData();
@@ -36,7 +39,7 @@ export class ConfigurationComponent {
   }
 
   openDialog(): void {
-    this.formData = { name: '' };
+    this.formData = { name: '', components:[] };
     this.displayDialog = true;
   }
 

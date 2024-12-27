@@ -5,6 +5,7 @@ import { ProductService } from './service/product.service';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { SharedModule } from '@/shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    SharedModule
   ],
   providers: [ ProductService ],
   exports: [ ]

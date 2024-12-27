@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 import { CombinationTableComponent } from '../components-table/components-table.component';
 import { Combination } from '@/shared/domain/Combination';
 import { CombinationService } from '@/shared/service/combination/combination.service';
 import { ProductCombination } from '@/shared/domain/ProductCombination';
+import { ConfigurationDialogComponent } from '../configuration-dialog/configuration-dialog.component';
 
 @Component({
   selector: 'app-configuration',
@@ -48,7 +48,8 @@ export class ConfigurationComponent {
           basePrice: 0,
           category: {
             id: 0,
-            name: ''
+            name: '',
+            components: []
           },
           product: {
             id: 0,
@@ -61,7 +62,8 @@ export class ConfigurationComponent {
           basePrice: 0,
           category: {
             id: 0,
-            name: ''
+            name: '',
+            components: []
           },
           product: {
             id: undefined,
